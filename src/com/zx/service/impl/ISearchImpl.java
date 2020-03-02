@@ -5,29 +5,40 @@ import java.util.Map;
 import com.zx.common.CodeMsg;
 import com.zx.common.PageInfo;
 import com.zx.common.Result;
+import com.zx.dao.IRoomDao;
 import com.zx.dao.ISearchDao;
+import com.zx.dao.impl.RoomDaoImpl;
 import com.zx.dao.impl.SearchDaoImpl;
 import com.zx.service.ISearch;
-import com.zx.pojo.searchRst;
+import com.zx.pojo.SearchRst;
+import com.zx.pojo.Room;
 
 public class ISearchImpl implements ISearch{
 	private ISearchDao searchDao = new SearchDaoImpl();
+	private IRoomDao roomDao = new RoomDaoImpl();
 
 	@Override
 	public Result queryPage(Map<String, Object> param, String page, String limit) {
-		PageInfo<searchRst> pageInfo = searchDao.selectPage(param, Integer.parseInt(page), Integer.parseInt(limit));
+		PageInfo<SearchRst> pageInfo = searchDao.selectPage(param, Integer.parseInt(page), Integer.parseInt(limit));
 		
 		return new Result(pageInfo);
 	}
-	
+
 	@Override
-	public Result add(String userName, String realName, String type) {
-		//业务数据校验
-		//校验用户名 不能重复
-		searchRst user = searchDao.selectUser(userName);
+	public Result add(String name, String price, String type, String info) {
+		Room room = cuserDao.selectUser(userName);
+		if(user != null) {
+			return new Result(CodeMsg.USER_USERNAME_EXIST_ERROR);
+		}
+		String password = SecureUtil.md5(Constant.DEFAULT_PASSWORD);
+		Integer isDel = Constant.USER_STATE_VALID;
+		String createTime = DateUtil.format(new Date(), Constant.YYYY_MM_DD_HH_MM_SS);
+		String modifyTime = createTime;
 		cuserDao.insert(userName,password,realName,type,isDel,createTime,modifyTime);
-		return new Result();
+		return null;
 	}
+	
+	
 /*
 	@Override
 	public Result delete(String... ids) {

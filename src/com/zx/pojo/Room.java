@@ -1,6 +1,6 @@
 package com.zx.pojo;
 
-public class room {
+public class Room {
 	private int type;
 	private double price;
 	private String info;
@@ -36,19 +36,19 @@ public class room {
 		this.id = id;
 	}
 	
-	public room(int type, double price, String info, int id) {
+	public Room(int type, double price, String info, int id) {
 		super();
 		this.type = type;
 		this.price = price;
 		this.info = info;
 		this.id = id;
 	}
-	public room() {
+	public Room() {
 		super();
 	}
 	@Override
 	public String toString() {
-		return "room [id=" + id + ", type=" + type + ", price=" + price + ", info=" + info + ", id=" + id
+		return "Room [id=" + id + ", type=" + type + ", price=" + price + ", info=" + info + ", id=" + id
 				+ "]";
 	}
 	

@@ -21,7 +21,7 @@ import java.util.Map;
 import com.zx.common.*;
 import com.zx.util.RespWrite;
 
-@WebServlet("/hotel.do")
+@WebServlet("/Hotel.do")
 public class SearchController extends HttpServlet {
 
 	private static final long serialVersionUID = 7723086583204133716L;
@@ -97,10 +97,11 @@ public class SearchController extends HttpServlet {
 	}
 	
 	protected void add(HttpServletRequest req, HttpServletResponse resp) {
-		String userName = req.getParameter("userName");
-		String realName = req.getParameter("realName");
+		String name = req.getParameter("name");
+		String price = req.getParameter("price");
 		String type = req.getParameter("type");
-		Result rs = searchService.add(userName,realName,type);
+		String info = req.getParameter("info");
+		Result rs = searchService.add(name,price,type,info);
 		//将业务结果进行输出
 		RespWrite.writerJson(resp, rs);
 	}

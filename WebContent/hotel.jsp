@@ -43,7 +43,8 @@
 	<button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="del"><i class="layui-icon layui-icon-delete"></i>Delete</button>		
 </script>
 
-<!-- 数据编辑的层 -->
+<!-- ADD -->
+
 <script type="text/html" id="addTpl">
 <div style="width: 400px;margin: auto;margin-top: 20px;">
 <!-- form 容器已定义好 -->
@@ -59,7 +60,6 @@
   		<option value="ccc">ccc</option>
 	</select>
 	</div>	
-
 	</div>
 	
 
@@ -70,6 +70,7 @@
 		</div>
 	</div>
 	
+
 	<div class="layui-form-item" >
 		<label class="layui-form-label" >Room</label>
 		<div class="layui-input-block">
@@ -79,12 +80,14 @@
 		</div>
 	</div>
 
+
 	<div class="layui-form-item">
 		<label class="layui-form-label">Information:</label>
 			<div class="layui-input-block">
 				<textarea name="info" id="info" style="width:250px"></textarea>
 			</div>
 	</div>
+
 
 	<button type="button" id="submitBtn" lay-submit lay-filter="submitBtnFilter" class="display:none"></button>
 </form>

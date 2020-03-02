@@ -1,8 +1,10 @@
 package com.zx.pojo;
 
-public class hotel {
+public class SearchRst {
 	private int id;
 	private String name;
+	private int type;
+	private double price;
 	private String address;
 	private String mobile;
 	public int getId() {
@@ -16,6 +18,18 @@ public class hotel {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
 	}
 	public String getAddress() {
 		return address;
@@ -31,26 +45,21 @@ public class hotel {
 	}
 	@Override
 	public String toString() {
-		return "hotel [id=" + id + ", name=" + name + ", address=" + address + ", mobile=" + mobile + "]";
+		return "SearchRst [id=" + id + ", name=" + name + ", type=" + type + ", price=" + price + ", address=" + address
+				+ ", mobile=" + mobile + "]";
 	}
-	public hotel(int id, String name, String address, String mobile) {
+	public SearchRst(int id, String name, int type, double price, String address, String mobile) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.type = type;
+		this.price = price;
 		this.address = address;
 		this.mobile = mobile;
 	}
+	public SearchRst() {
+		super();
+	}
 	
-	public hotel() {}
+	
 }
-
-/*
- * create table hotel(
-	id int(11) auto_increment,
-	name varchar(50) not null,
-	address varchar(200) not null,
-	mobile varchar(15) not null,
-	primary key(id)
-);
- * 
- */
