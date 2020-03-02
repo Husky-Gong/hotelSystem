@@ -2,7 +2,6 @@ package com.zx.service.impl;
 
 import java.util.Map;
 
-import com.zx.common.CodeMsg;
 import com.zx.common.PageInfo;
 import com.zx.common.Result;
 import com.zx.dao.IRoomDao;
@@ -11,7 +10,6 @@ import com.zx.dao.impl.RoomDaoImpl;
 import com.zx.dao.impl.SearchDaoImpl;
 import com.zx.service.ISearch;
 import com.zx.pojo.SearchRst;
-import com.zx.pojo.Room;
 
 public class ISearchImpl implements ISearch{
 	private ISearchDao searchDao = new SearchDaoImpl();
@@ -26,16 +24,16 @@ public class ISearchImpl implements ISearch{
 
 	@Override
 	public Result add(String name, String price, String type, String info) {
-		Room room = cuserDao.selectUser(userName);
-		if(user != null) {
-			return new Result(CodeMsg.USER_USERNAME_EXIST_ERROR);
+		int hotelId;
+		if(name.equals("aaa")) {
+			hotelId=1;
+		}else if(name.equals("bbb")) {
+			hotelId=2;
+		}else {
+			hotelId=3;
 		}
-		String password = SecureUtil.md5(Constant.DEFAULT_PASSWORD);
-		Integer isDel = Constant.USER_STATE_VALID;
-		String createTime = DateUtil.format(new Date(), Constant.YYYY_MM_DD_HH_MM_SS);
-		String modifyTime = createTime;
-		cuserDao.insert(userName,password,realName,type,isDel,createTime,modifyTime);
-		return null;
+		roomDao.insert(type,price,info,hotelId);
+		return new Result();
 	}
 	
 	
